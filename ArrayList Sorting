@@ -1,0 +1,85 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class Student {
+    String name ;
+    double marks , percentage  ;
+    int rn ;
+
+    Student(String name  , double marks , int rn){
+        this.name = name ;
+        this.marks = marks ;
+        this.rn = rn ;
+    }
+    
+    public double percentage(){
+        this.percentage =(double) ((this.marks)/300)*100 ;
+        return percentage ;
+    }
+
+    public static void main(String[] args) 
+    {
+        Student s1 = new Student("Harsh", 270, 42);
+        Student s2 = new Student("Rahul", 290, 45);
+        Student s3 = new Student("Deepak",285,49);
+        Student s4 = new Student("Amit",291,43);
+        Student s5 = new Student("Prince",297,50);
+
+        ArrayList<Student> list = new ArrayList<Student>();
+        list.add(s1);
+        list.add(s2);
+        list.add(s3);
+        list.add(s4);
+        list.add(s5);
+
+
+        System.out.println("Before sorting :");
+        //list before sorting 
+        
+        for(Student s : list){
+            System.out.println("Name:"+s.name + "  Marks:"+s.marks+ "  Roll Number:" +s.rn+ "  Percentage:" +s.percentage());
+        }
+        
+
+        System.out.println("After Sorting");
+        //list after sorting in descending order of percentage
+        
+        // Collections.sort(list,new PerSorter());
+        // for(Student s : list){
+        //     System.out.println("Name:"+s.name + "  Marks:"+s.marks+ "  Roll Number:" +s.rn+ "  Percentage:" +s.percentage());
+        // }
+
+        //list after soring in ascending or descending order of Names 
+        // Collections.sort(list,new NameSorter());
+        // for(Student s : list){
+        //     System.out.println("Name:"+s.name + "  Marks:"+s.marks+ "  Roll Number:" +s.rn+ "  Percentage:" +s.percentage());
+        // }
+
+    }
+}
+//======================================================================================
+// class PerSorter implements Comparator<Student>{
+//     public int compare(Student s1 , Student s2){
+//         if(s1.percentage()>s2.percentage())
+//         return -1 ; //  return 1 for ascending sorting
+//         else if(s1.percentage()<s2.percentage())
+//         return 1 ;  // return -1 for ascending sorting 
+//         else 
+//         return 0 ;
+//     }
+// }
+
+
+//======================================================================================
+
+
+// class NameSorter implements Comparator<Student>{
+//     public int compare(Student s1 , Student s2)
+//     {
+//        // to sort in ascending order of name 
+//     //return s1.name.compareTo(s2.name);
+//         //to sort in descending order of name
+//     return s2.name.compareTo(s1.name);
+//     }
+// }
